@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { useEffect,useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { getUser } from './utilities/users-service'
+import AuthPage from './pages/AuthPage/AuthPage';
+import BlogDetailPage from './pages/BlogDetailPage/BlogDetailPage';
+import HomePage from './pages/HomePage/HomePage';
+import MyBlogPage from './pages/MyBlogPage/MyBlogPage';
+import NavBar from './components/Navbar/NavBar';
 function App() {
+  const [user, setUser] = useState(getUser());
+  // console.log('current user', user)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      {user ? (
+        <>
+          <NavBar user={user} setUser={setUser}/>
+          <Routes>
+            <Route path="/homepage" element={<HomePage />} />
+            <Route path="/homepage/myblogs" element={<MyBlogPage  />} />
+            <Route path="/homepage/myblogs/:symbol" element={<MyBlogPage />} />
+          </Routes>
+        </>
+      ) : (
+        <AuthPage setUser={setUser} />
+      )}
+    </main>
   );
 }
 
