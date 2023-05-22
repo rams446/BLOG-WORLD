@@ -21,10 +21,19 @@
         };
         return sendRequest(`${BASE_URL}/homepage/myblogs/${email}`, "GET");
         }
-        export function editForm(editForm) {
+        export function editForm(payload) {
             console.log(editForm)
-            return sendRequest(`${BASE_URL}/homepage/:id/edit`, 'POST',  );
+            return sendRequest(`${BASE_URL}/homepage/${payload._id}/edit`, 'POST', payload );
+
             }
+        export function deleteForm(payload) {
+                console.log(deleteForm)
+                return sendRequest(`${BASE_URL}/homepage/${payload._id}`, 'POST', payload );
+    
+            }
+            
+            
+
     export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`);
     }

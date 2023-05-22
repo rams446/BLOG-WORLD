@@ -1,11 +1,13 @@
     const User = require('../../models/Blogs');
     const bcrypt = require('bcrypt');
     var path = require('path');
+    const {ObjectId} = require('mongodb');
 
     module.exports = {
         create,
         blog,
-        editblog
+        editblog,
+        deleteblog
         };
 
         // This function fires when a request is made to /api/users POST
@@ -38,11 +40,52 @@
 
         async function editblog(req, res) {
             try {
-                const editblog = req.params.id;
-                const foundLog= await User.findById({editblog});
-                console.log("hi")
-                res.send(foundLog);
+                const id = req.params.id;
+                const payload = req.body;
+
+                const reqPaylaod ={
+                    blogname: payload.blogname,
+                    categorey: payload.categorey,
+                    description: payload.description
+                }
+                console.log(reqPaylaod)
+                const foundLog= await User.findByIdAndUpdate(id, reqPaylaod);
+                const updatedlog =await User.findById(id)
+                //const edit = await User.updateOne(editblog);
+                // var myquery = {_id:id};
+                // var newvalues = { $set: editblog };
+                // await User.updateOne(myquery, newvalues);
+               
+                console.log(foundLog)
+                console.log(updatedlog)
+                res.send(updatedlog);
                 }catch (err) {
                 res.status(400).send(err);
                 }
             };
+
+            async function deleteblog(req, res) {
+                try {
+                    const id = req.params.id;
+                    const payload = req.body;
+    
+                    const reqPaylaod ={
+                        blogname: payload.blogname,
+                        categorey: payload.categorey,
+                        description: payload.description
+                    }
+                    console.log(reqPaylaod)
+                    const foundLog= await User.findByIdAndDelete(id);
+                    //const edit = await User.updateOne(editblog);
+                    // var myquery = {_id:id};
+                    // var newvalues = { $set: editblog };
+                    // await User.updateOne(myquery, newvalues);
+                    
+                    const updatedlog =await User.findById(id)
+                    console.log(foundLog)
+                    console.log(updatedlog)
+                    res.send(updatedlog);
+                    }catch (err) {
+                    res.status(400).send(err);
+                    }
+                };
