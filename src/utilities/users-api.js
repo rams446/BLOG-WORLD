@@ -21,9 +21,10 @@
         };
         return sendRequest(`${BASE_URL}/homepage/myblogs/${email}`, "GET");
         }
-        // export function editForm(editForm) {
-        //     return sendRequest(`${BASE_URL}/homepage/myblogs/:id`, 'POST',  editForm);
-        //     }//
+        export function editForm(editForm) {
+            console.log(editForm)
+            return sendRequest(`${BASE_URL}/homepage/:id/edit`, 'POST',  );
+            }
     export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`);
     }

@@ -16,6 +16,6 @@ router.post('/homepage/myblogs', blogCtrl.create);
 
 router.get('/homepage/myblogs/:email',blogCtrl.blog);
 
-// router.post(`/homepage/myblogs/:id/edit`, blogCtrl.editblog);
+router.post(`/homepage/:id/edit`, blogCtrl.editblog);
 
 module.exports = router;

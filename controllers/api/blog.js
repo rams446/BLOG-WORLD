@@ -5,7 +5,7 @@
     module.exports = {
         create,
         blog,
-        // editblog
+        editblog
         };
 
         // This function fires when a request is made to /api/users POST
@@ -36,13 +36,13 @@
             }
         };
 
-        // async function editblog(req, res) {
-        //     try {
-        //         const editblog = req.params.id;
-        //         const foundLog= await User.findById({editblog});
-        //         console.log("hi")
-        //         res.send(foundLog);
-        //         }catch (err) {
-        //         res.status(400).send(err);
-        //         }
-        //     };
+        async function editblog(req, res) {
+            try {
+                const editblog = req.params.id;
+                const foundLog= await User.findById({editblog});
+                console.log("hi")
+                res.send(foundLog);
+                }catch (err) {
+                res.status(400).send(err);
+                }
+            };
