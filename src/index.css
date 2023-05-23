@@ -1,12 +1,12 @@
 /* CSS Custom Properties */
 :root {
-  --white: #0c0e0f;
+  --white: #b0daef;
   --tan-1: #8dd8e2;
-  --tan-2: #0c0c0b;
+  --tan-2: #d9d97e;
   --tan-3: #232825;
   --tan-4: #43a9d4;
   --orange: #020202;
-  --text-light: #a8afb3;
+  --text-light: #ffffff;
   --text-dark: #fa0808;
 }
 

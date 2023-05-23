@@ -70,11 +70,10 @@ import * as usersAPI from '../../utilities/users-api';
          return ( blog.blogname == symbol ?
             <div>
             <form onSubmit={edit} id="formId">
-            <input type="text" defaultValue={blog.blogname} name="blogname" id="blogName" onChange={handleChange}/>
-            <input type="text" defaultValue={blog.categorey} name="category" id="blogCategory"onChange={handleChange}/>
-            <textarea defaultValue={blog.description} name="description" id="blogDescription" onChange={handleChange}/>
-    
-            <input type="text" value={blog._id} name="blogId" id="blogId" disabled/>
+            BlogName: <input type="text" defaultValue={blog.blogname} name="blogname" id="blogName" onChange={handleChange}/>
+            Blog Category: <input type="text" defaultValue={blog.categorey} name="category" id="blogCategory"onChange={handleChange}/>
+            Blog Description: <textarea defaultValue={blog.description} name="description" id="blogDescription" onChange={handleChange}/>
+            Blog Id: <input type="text" value={blog._id} name="blogId" id="blogId" disabled/>
             {/* <Link to ={`/homepage/${blog._id}/edit`} >  </Link>   */}
 
             <button

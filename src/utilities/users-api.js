@@ -32,9 +32,22 @@
     
             }
 
+            export function addFavoriteForm(editBlog) {
+                console.log("inside add favorite")
+                console.log(editBlog)
+                const email = JSON.parse(atob(localStorage.getItem("token").split('.')[1])).user.email;
+                return sendRequest(`${BASE_URL}/homepage/myfavorites/${email}`, 'POST', editBlog );
+    
+            }
+
             export function Allblogs() {
                 return sendRequest(`${BASE_URL}/homepage`, "GET");
                 }
+
+                export function userFavorites() {
+                    const email = JSON.parse(atob(localStorage.getItem("token").split('.')[1])).user.email;
+                    return sendRequest(`${BASE_URL}/homepage/userFavorites/${email}`, "GET");
+                    }
             
             
 

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersCtrl = require('../../controllers/api/users');
 const blogCtrl = require('../../controllers/api/blog');
+const favoriteCtrl = require('../../controllers/api/favorites');
 
 // POST /api/users
 router.post('/', usersCtrl.create);
@@ -20,5 +21,6 @@ router.post(`/homepage/:id/edit`, blogCtrl.editblog);
 
 router.post(`/homepage/:id`, blogCtrl.deleteblog);
 router.get('/homepage', blogCtrl.allblog);
-
+router.post(`/homepage/myfavorites/:email`,favoriteCtrl.create );
+router.get(`/homepage/userFavorites/:email`,favoriteCtrl.getFavoriteBlogs );
 module.exports = router;
