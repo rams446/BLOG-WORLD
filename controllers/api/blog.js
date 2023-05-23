@@ -7,7 +7,8 @@
         create,
         blog,
         editblog,
-        deleteblog
+        deleteblog,
+        allblog
         };
 
         // This function fires when a request is made to /api/users POST
@@ -84,8 +85,20 @@
                     const updatedlog =await User.findById(id)
                     console.log(foundLog)
                     console.log(updatedlog)
-                    res.send(updatedlog);
+                    res.send(foundLog);
                     }catch (err) {
                     res.status(400).send(err);
                     }
                 };
+
+                async function allblog(req,res){
+                    try{
+
+                        const user = await User.find({});
+                        res.send(user);
+                        
+                        } catch (err) {
+                            res.status(400).json(err);
+                        }
+                        }
+                

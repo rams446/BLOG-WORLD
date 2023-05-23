@@ -4,7 +4,7 @@
     export default function AuthPage({ setUser }) {
     return (
         <>
-        <h1>AuthPage</h1>
+        <h1>Blog-World</h1>
         <SignUpForm setUser={setUser} />
         <LoginForm setUser={setUser} />
         </>

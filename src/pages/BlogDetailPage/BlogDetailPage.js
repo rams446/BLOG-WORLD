@@ -38,6 +38,7 @@ import * as usersAPI from '../../utilities/users-api';
                 payload._id = evt.target[3].value
                 if(state.button === "delete"){
                     const user = await usersAPI.deleteForm(payload)
+                    document.getElementById("formId").remove();
                 }else if(state.button === "edit"){
                     const user = await usersAPI.editForm(payload)
                 }
@@ -68,7 +69,7 @@ import * as usersAPI from '../../utilities/users-api';
         props.Blogdetails?.map((blog)=>{
          return ( blog.blogname == symbol ?
             <div>
-            <form onSubmit={edit}>
+            <form onSubmit={edit} id="formId">
             <input type="text" defaultValue={blog.blogname} name="blogname" id="blogName" onChange={handleChange}/>
             <input type="text" defaultValue={blog.categorey} name="category" id="blogCategory"onChange={handleChange}/>
             <textarea defaultValue={blog.description} name="description" id="blogDescription" onChange={handleChange}/>

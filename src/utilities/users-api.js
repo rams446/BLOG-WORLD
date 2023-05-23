@@ -21,16 +21,20 @@
         };
         return sendRequest(`${BASE_URL}/homepage/myblogs/${email}`, "GET");
         }
-        export function editForm(payload) {
+        export function editForm(editBlog) {
             console.log(editForm)
-            return sendRequest(`${BASE_URL}/homepage/${payload._id}/edit`, 'POST', payload );
+            return sendRequest(`${BASE_URL}/homepage/${editBlog._id}/edit`, 'POST', editBlog );
 
             }
-        export function deleteForm(payload) {
+        export function deleteForm(editBlog) {
                 console.log(deleteForm)
-                return sendRequest(`${BASE_URL}/homepage/${payload._id}`, 'POST', payload );
+                return sendRequest(`${BASE_URL}/homepage/${editBlog._id}`, 'POST', editBlog );
     
             }
+
+            export function Allblogs() {
+                return sendRequest(`${BASE_URL}/homepage`, "GET");
+                }
             
             
 
