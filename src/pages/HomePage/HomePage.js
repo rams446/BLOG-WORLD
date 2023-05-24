@@ -1,4 +1,4 @@
-
+import styles from './HomePage.module.css';
 import * as usersAPI from '../../utilities/users-api';
 import { useState, useEffect } from 'react';
 export default function HomePage() {
@@ -50,26 +50,27 @@ try {
   return (
     <div>
     <br></br>
-    <form className="form-container" onSubmit={edit}>
-    <table>
+    <form  onSubmit={edit}>
+    {/* <table>
       <tr>
         <th>Blog Name</th>
         <th>Blog Category</th>
         <th>Blog Description</th>
         <th>Blog Id</th>
         <th>Add to Favorites</th>
-      </tr>
+      </tr> */}
       {allblogs?.map((blogs) => {
       return (
-        <tr>
-          <td><input type="text" value={blogs.blogname} disabled id={blogs._id+"_name"} name="blogName"></input> </td>
-          <td><input type="text" value={blogs.categorey} disabled id={blogs._id+"_cat"} name="blogCategory"></input></td>
-          <td><input type="text" value={blogs.description} disabled id={blogs._id+"desc"} name="blogDescription"></input></td>
-          <td><input type="text" value={blogs._id} disabled id={blogs._id+"_id"} name="blogId"></input></td>
-          <td><button type="submit" id={blogs._id} onClick={() => (state.button = blogs._id, state.name=blogs.blogname, state.cat=blogs.categorey, state.desc = blogs.description)}>Add to Favorites</button></td>
-        </tr>)
-    })}
-    </table>
+        <div className={styles.card} >
+    <div>   Blog Name:  {blogs.blogname} </div>
+    <div >   Category:   {blogs.categorey} </div>
+    <div >   Description:  {blogs.description} </div>
+      <div>  Blog Id {blogs._id} </div>
+       <div>  <button type="submit" id={blogs._id} onClick={() => (state.button = blogs._id, state.name=blogs.blogname, state.cat=blogs.categorey, state.desc = blogs.description)}>Add to Favorites</button></div>
+      </div>
+      )
+    })
+  }
     </form>
     </div>
   )

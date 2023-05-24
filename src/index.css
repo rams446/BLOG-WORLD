@@ -24,6 +24,13 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+    background-image:url("typist.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: 1550px ;
+
+    
+
 }
 
 code {
@@ -75,7 +82,7 @@ code {
   border-radius: 1vmin;
   padding: .6vmin;
   text-align: center;
-  font-size: 7vmin;
+  font-size: 2vmin;
 }
 
 .form-container {

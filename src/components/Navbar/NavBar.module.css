@@ -1,0 +1,26 @@
+.ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+  }
+
+  .li{
+    
+   
+        display: inline-block;
+        text-decoration: none;
+        line-height: 1em;
+        padding: 10px;
+        margin: 42px;
+        font-size: 25px;
+       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+       font-weight: 900;
+      
+      
+    }
+
+
+  
+  
