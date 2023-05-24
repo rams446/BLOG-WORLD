@@ -7,7 +7,6 @@ const blogSchema = new Schema({
     description:{type: String, required: true},
     email: {
         type: String,
-        unique: true,
         trim: true,
         lowercase: true,
         required: true

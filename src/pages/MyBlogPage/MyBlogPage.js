@@ -10,6 +10,7 @@ export default function MyBlogPage() {
         setShowForm(!showForm)
     }
     const [error, setError] = useState('')
+    const [value, setValue] = useState('Food');
 
     useEffect(() => {
         console.log("executed only once!");
@@ -45,6 +46,7 @@ export default function MyBlogPage() {
             console.log(email)
             console.log(newBlog);
             newBlog.email = email;
+            newBlog.categorey = value;
             const user = await usersAPI.newblog(newBlog)
             const blogs = await usersAPI.blog();
             setShowblog(blogs)
@@ -53,24 +55,34 @@ export default function MyBlogPage() {
         }
     }
     
-
-
+       
+        const handleChange1 = (event) => {
+       
+          setValue(event.target.value);
+       
+        };
     return (
         <div>
-           
         <form>
-        <button onClick={showForms} name="button">CREATE BLOG</button> 
+        <button onClick={showForms} name="button">CREATE BLOG</button>
         </form>
-        <form onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
         BlogName: <input name="blogname" type="text"   value={newBlog.blogname} onChange={handleChange}></input>
-        Categorey: <input name="categorey" type="text"  value={newBlog.categorey}  onChange={handleChange}></input>
+        {/* Categorey: <input name="categorey" type="text"  value={newBlog.categorey}  onChange={handleChange}></input> */}
+            Category: <select value={value} onChange={handleChange1}>
+             <option value="Food">Food</option>
+             <option value="Travel">Travel</option>
+             <option value="Education">Education</option>
+             <option value="Health">Health</option>
+             <option value="Stories">Stories</option>
+            </select>
         Description:  <textarea name="description" type="textarea" value={newBlog.description}  onChange={handleChange}> </textarea>
         <button  name="post"  >Post</button> 
         </form>
         <h3>My blogs</h3>
         { <h4>{showblog?.map((blogs) => {
              return <div className="blogsList">
-            <Link to ={`/homepage/myblogs/${blogs.blogname}`}>{blogs.blogname}</Link>    
+            <Link to ={`/homepage/myblogs/${blogs._id}`}>{blogs.blogname}</Link>    
                 </div>
         })}</h4> }
           <BlogDetailPage Blogdetails={showblog}/>

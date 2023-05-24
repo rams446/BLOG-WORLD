@@ -30,6 +30,14 @@ import * as usersAPI from '../../utilities/users-api';
        
     return(
         <div>
+            <br></br>
+            <table className="form-container">
+                <tr>
+                    <th>Blog Name</th>
+                    <th>Categorey</th>
+                    <th>Description</th>
+                    <th>Id</th>
+                </tr>
             {allblogs?.map((blogs) => {
       return (
         <tr>
@@ -39,6 +47,7 @@ import * as usersAPI from '../../utilities/users-api';
           <td><input type="text" value={blogs._id} disabled id={blogs._id+"_id"} name="blogId"></input></td>
         </tr>)
     })}
+        </table>
         </div>
     )
     }

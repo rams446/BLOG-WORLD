@@ -14,13 +14,15 @@
         // This function fires when a request is made to /api/users POST
         async function create(req, res) {
         try {
-        
+        console.log("before creation")
+        console.log(req.body)
         const user = await User.create(req.body);
         console.log("eye catcher")
         console.log(user)
-        console.log( res.send(user))
+        res.send(user)
         
         } catch (err) {
+            console.log(err)
             res.status(400).json(err);
         }
         }

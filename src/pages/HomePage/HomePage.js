@@ -50,7 +50,7 @@ try {
   return (
     <div>
     <br></br>
-    <form onSubmit={edit}>
+    <form className="form-container" onSubmit={edit}>
     <table>
       <tr>
         <th>Blog Name</th>
