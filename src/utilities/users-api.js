@@ -9,8 +9,10 @@
     return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
     }
 
+    //Blogs
+    //=== Create ====
     export function newblog(newBlog) {
-        return sendRequest(`${BASE_URL}/homepage/myblogs`, 'POST', newBlog);
+    return sendRequest(`${BASE_URL}/homepage/myblogs`, 'POST', newBlog);
         }
 
     export function blog() {
@@ -19,34 +21,37 @@
             method: 'GET',
             headers: { 'email': email},
         };
-        return sendRequest(`${BASE_URL}/homepage/myblogs/${email}`, "GET");
+    return sendRequest(`${BASE_URL}/homepage/myblogs/${email}`, "GET");
         }
-        export function editForm(editBlog) {
+     //====Edit ===   
+    export function editForm(editBlog) {
             console.log(editForm)
-            return sendRequest(`${BASE_URL}/homepage/${editBlog._id}/edit`, 'POST', editBlog );
+    return sendRequest(`${BASE_URL}/homepage/${editBlog._id}/edit`, 'POST', editBlog );
 
             }
-        export function deleteForm(editBlog) {
+
+    //====Delete the Form====
+    export function deleteForm(editBlog) {
                 console.log(deleteForm)
-                return sendRequest(`${BASE_URL}/homepage/${editBlog._id}`, 'POST', editBlog );
+    return sendRequest(`${BASE_URL}/homepage/${editBlog._id}`, 'POST', editBlog );
     
             }
-
-            export function addFavoriteForm(editBlog) {
+    // Favourites
+    export function addFavoriteForm(editBlog) {
                 console.log("inside add favorite")
                 console.log(editBlog)
                 const email = JSON.parse(atob(localStorage.getItem("token").split('.')[1])).user.email;
-                return sendRequest(`${BASE_URL}/homepage/myfavorites/${email}`, 'POST', editBlog );
+    return sendRequest(`${BASE_URL}/homepage/myfavorites/${email}`, 'POST', editBlog );
     
             }
-
-            export function Allblogs() {
-                return sendRequest(`${BASE_URL}/homepage`, "GET");
+    // Index
+    export function Allblogs() {
+    return sendRequest(`${BASE_URL}/homepage`, "GET");
                 }
 
-                export function userFavorites() {
+    export function userFavorites() {
                     const email = JSON.parse(atob(localStorage.getItem("token").split('.')[1])).user.email;
-                    return sendRequest(`${BASE_URL}/homepage/userFavorites/${email}`, "GET");
+    return sendRequest(`${BASE_URL}/homepage/userFavorites/${email}`, "GET");
                     }
             
             

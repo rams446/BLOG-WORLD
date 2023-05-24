@@ -13,7 +13,6 @@ async function create(req, res) {
 try {
     // Add the favorites to the database
     // then()
-    console.log(req.body.email)
     const blogs = await Favorites.find({ "email": req.body.email});
     
 //    const user = await Favorites.create(req.body);

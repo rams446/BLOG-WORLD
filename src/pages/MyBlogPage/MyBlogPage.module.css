@@ -1,0 +1,31 @@
+.link{
+background-color: #9df2df;
+color: rgb(157, 59, 59);
+padding: 14px 25px;
+text-align: center;
+text-decoration: none;
+display: inline-block
+}
+.blog{
+    display: flex;
+}
+.li{
+        
+    
+    display: inline-block;
+    text-decoration: none;
+    margin: 42px;
+    font-size: 25px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 900;
+
+
+}
+.il1 {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 25px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 900;
+    width: 10%;
+}
